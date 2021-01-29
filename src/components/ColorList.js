@@ -19,17 +19,23 @@ const ColorList = ({ colors, updateColors, fetchColors }) => {
 
   const saveEdit = e => {
     e.preventDefault();
-    // axiosWithAuth()
-    // .put('/colors/:id', )
+    axiosWithAuth()
+    .put(`/colors/${colorToEdit.id}`, colorToEdit)
+    .then(res => {
+      console.log(res)
+      fetchColors();
+    })
+    .catch(err => {
+      console.log(err)
+    })
 
   };
 
   const deleteColor = color => {
     axiosWithAuth()
-    .delete(`/colors/${color.id}`, color)
+    .delete(`/colors/${color.id}`)
     .then(res => {
       console.log(res)
-      updateColors()
       fetchColors()
     })
     .catch(err => {
