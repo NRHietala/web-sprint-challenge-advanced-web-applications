@@ -12,6 +12,7 @@ test("Fetches data and renders the bubbles on mounting", () => {
 
   // Act
 
+  
   // Assert
 });
 
