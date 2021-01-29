@@ -31,15 +31,11 @@ test("Renders BubblePage without errors", () => {
 test("Fetches data and renders the bubbles on mounting", async () => {
   const { rerender } = (<BubblePage colorList={dummyColors} />)
 
-  render(<BubblePage colorList={[]} />)
-
-  expect(colorList).toHaveLength(0)
+  render(<BubblePage />)
 
   mockaxiosWithAuth.mockResolvedValueOnce(dummyColors)
 
   rerender(<BubblePage colorList={dummyColors}/>)
-
-
 
   expect(colorList).toHaveLength(2)
 });
