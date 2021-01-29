@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import axios from "axios";
 
 const intialCredentials = {
@@ -13,6 +14,8 @@ const Login = props => {
   // when you have handled the token, navigate to the BubblePage route
   const [ credentials, setCredentials ] = useState(intialCredentials);
 
+  const history = useHistory();
+
   const handleChange = e => {
     setCredentials({
       ...credentials,
@@ -22,6 +25,14 @@ const Login = props => {
 
   const handleLogin = e => {
     e.preventDefault();
+
+    axios
+    .post('http://localhost:5000/api/login', credentials)
+    .then(res => {
+      console.log(res);
+      localStorage.setItem("token", res.data.payload)
+      history.push('/protected')
+    })
   }
 
 
