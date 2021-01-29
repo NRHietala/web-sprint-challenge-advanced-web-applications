@@ -7,11 +7,8 @@ const intialCredentials = {
   password:"",
 }
 
-// codegrade test 1
 
 const Login = props => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
   const [ credentials, setCredentials ] = useState(intialCredentials);
 
   const history = useHistory();
@@ -21,7 +18,7 @@ const Login = props => {
       ...credentials,
       [e.target.name] : e.target.value
     })
-  }
+  };
 
   const handleLogin = e => {
     e.preventDefault();
@@ -32,8 +29,7 @@ const Login = props => {
       localStorage.setItem("token", res.data.payload)
       history.push('/protected')
     })
-  }
-
+  };
 
   return (
     <>

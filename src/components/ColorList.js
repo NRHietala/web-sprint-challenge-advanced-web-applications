@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import EditMenu from './EditMenu';
-import axiosWithAuth from "../utils/axiosWithAuth";
+import axiosWithAuth from "../helpers/axiosWithAuth";
 
 const initialColor = {
   color: "",

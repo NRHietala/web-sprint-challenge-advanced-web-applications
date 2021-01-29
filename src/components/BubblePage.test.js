@@ -7,7 +7,12 @@ test("Renders BubblePage without errors", () => {
 });
 
 test("Fetches data and renders the bubbles on mounting", () => {
-  // Finish this test
+  // Arange: Render page 
+  render(<BubblePage />)
+
+  // Act
+
+  // Assert
 });
 
 //Task List
